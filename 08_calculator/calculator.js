@@ -30,8 +30,15 @@ const power = function(base, exponent) {
   return result;
 };
 
-const factorial = function() {
-	
+const factorial = function(num) {
+	if (num === 1 || num === 0) {
+    return 1;
+  }
+  let factorial = 1;
+  for(x = 2; x <= num; x++) {
+    factorial *= x;
+  }
+  return factorial;
 };
 
 // Do not edit below this line
