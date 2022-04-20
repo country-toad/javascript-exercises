@@ -1,17 +1,19 @@
 const removeFromArray = function(list) {
-  let args = Array.from(arguments);
-  for (i = 0; i < list.length; i++) {
-    let isTarget = false;
-    for (target of args) { // Marks target item for deletion
-      if (list[i] === target) {
+  let newList = [];
+  let args = [...arguments];
+  let isTarget;
+  for (let x = 0; x < list.length; x++) {
+    isTarget = false;
+    for (y of args) {
+      if (list[x] === y) {
         isTarget = true;
       }
     }
-    if (isTarget) {
-      list.splice(i, 1); // Deletes item at current index
+    if (!isTarget) {
+      newList.push(list[x]);
     }
   }
-  return list;
+  return newList;
 };
 
 // Do not edit below this line
