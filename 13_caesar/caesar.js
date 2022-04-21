@@ -1,7 +1,6 @@
 const caesar = function(input, shift) {
   shift = shift % 26;
   let output = '';
-  let regex = /[A-Za-z]/;
   for (i = 0; i < input.length; i++) {
     let newChar = input.charCodeAt(i) + shift;
     if (/[A-Z]/.test(input.charAt(i))) {
@@ -13,12 +12,16 @@ const caesar = function(input, shift) {
       output += String.fromCharCode(newChar);
     } 
     else if (/[a-z]/.test(input.charAt(i))) {
+      if (newChar > 122) {
+        newChar -= 26;
+      } else if (newChar< 97) {
+        newChar += 26;
+      }
       output += String.fromCharCode(newChar);
     } 
     else {
       output += input.charAt(i);
     }
-    
   }
 
   return output;
