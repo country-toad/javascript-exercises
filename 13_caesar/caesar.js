@@ -1,7 +1,12 @@
 const caesar = function(input, shift) {
   shift = shift % 26;
-  let newCharCode = input.charCodeAt(0) + shift;
-  return String.fromCharCode(newCharCode);
+  let output = '';
+  for (i = 0; i < input.length; i++) {
+    let newCharCode = input.charCodeAt(i) + shift;
+    output += String.fromCharCode(newCharCode);
+  }
+
+  return output;
 
 
 
