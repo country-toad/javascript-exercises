@@ -1,9 +1,24 @@
 const caesar = function(input, shift) {
   shift = shift % 26;
   let output = '';
+  let regex = /[A-Za-z]/;
   for (i = 0; i < input.length; i++) {
-    let newCharCode = input.charCodeAt(i) + shift;
-    output += String.fromCharCode(newCharCode);
+    let newChar = input.charCodeAt(i) + shift;
+    if (/[A-Z]/.test(input.charAt(i))) {
+      if (newChar > 90) {
+        newChar -= 26;
+      } else if (newChar< 65) {
+        newChar += 26;
+      }
+      output += String.fromCharCode(newChar);
+    } 
+    else if (/[a-z]/.test(input.charAt(i))) {
+      output += String.fromCharCode(newChar);
+    } 
+    else {
+      output += input.charAt(i);
+    }
+    
   }
 
   return output;
